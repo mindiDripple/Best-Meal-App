@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:paddingBottom="88dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daily Meals Summary"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#111"/>
+
+            <!-- Progress Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#EDF7EF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Daily Progress\nToday"
+                            android:textStyle="bold"
+                            android:textColor="#223"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_view_details"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:text="View Details"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp">
+                        <ImageView
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:src="@drawable/ic_donut"
+                            android:contentDescription="Calories Donut"/>
+                    </LinearLayout>
+
+                    <!-- Legend -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#FFFFFF"
+                        android:padding="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:clipToOutline="true">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+                            <View android:layout_width="10dp" android:layout_height="10dp" android:background="#10B981"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  Breakfast: 350 kcal" android:layout_marginStart="6dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginTop="6dp">
+                            <View android:layout_width="10dp" android:layout_height="10dp" android:background="#EF4444"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  Lunch: 500 kcal" android:layout_marginStart="6dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginTop="6dp">
+                            <View android:layout_width="10dp" android:layout_height="10dp" android:background="#3B82F6"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  Snack: 300 kcal" android:layout_marginStart="6dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:layout_marginTop="6dp">
+                            <View android:layout_width="10dp" android:layout_height="10dp" android:background="#F59E0B"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  Dinner: 700 kcal" android:layout_marginStart="6dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Log your meal CTA -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_log_your_meal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:text="Log Your Meal"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#CF6E66"
+                app:icon="@drawable/ic_meal"
+                app:iconTint="@android:color/white"
+                app:iconPadding="8dp"
+                app:cornerRadius="24dp"/>
+
+            <!-- Logged Meals title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Logged Meals"
+                android:textStyle="bold"
+                android:textColor="#222"/>
+
+            <!-- List of meals -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+
+                <!-- Reusable item style replicated -->
+                <include layout="@layout/item_logged_meal"/>
+                <include layout="@layout/item_logged_meal"/>
+                <include layout="@layout/item_logged_meal"/>
+                <include layout="@layout/item_logged_meal"/>
+                <include layout="@layout/item_logged_meal"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom nav -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        app:menu="@menu/menu_bottom_nav"
+        app:itemIconTint="@color/selector_nav"
+        app:itemTextColor="@color/selector_nav"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

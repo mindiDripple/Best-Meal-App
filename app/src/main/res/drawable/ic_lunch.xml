@@ -1,0 +1,8 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="40dp" android:height="40dp" android:viewportWidth="40" android:viewportHeight="40">
+  <!-- simple burger icon -->
+  <path android:fillColor="#8D6E63" android:pathData="M8,20h24a3,3 0 0,0 0,-6H8a3,3 0 0,0 0,6z"/>
+  <path android:fillColor="#FFCC80" android:pathData="M8,22h24v4H8z"/>
+  <path android:fillColor="#81C784" android:pathData="M10,18h20v2H10z"/>
+  <path android:fillColor="#A1887F" android:pathData="M10,14h20v3H10z"/>
+  <path android:fillColor="#F8BBD0" android:pathData="M12,12h16v2H12z"/>
+</vector>

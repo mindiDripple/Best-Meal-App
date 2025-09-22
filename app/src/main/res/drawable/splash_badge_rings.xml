@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer subtle circle background -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#F2F4F3"/>
+        </shape>
+    </item>
+
+    <!-- Outer ring -->
+    <item android:top="6dp" android:bottom="6dp" android:left="6dp" android:right="6dp">
+        <shape android:shape="oval">
+            <stroke android:width="3dp" android:color="@color/bestmeal_deep_ring" />
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+
+    <!-- Inner ring -->
+    <item android:top="20dp" android:bottom="20dp" android:left="20dp" android:right="20dp">
+        <shape android:shape="oval">
+            <stroke android:width="2dp" android:color="@color/bestmeal_deep_ring" />
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+</layer-list>

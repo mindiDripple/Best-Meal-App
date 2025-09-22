@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="140dp" android:height="140dp" android:viewportWidth="140" android:viewportHeight="140">
+  <!-- donut circle -->
+  <path android:fillColor="#FFE9D5" android:pathData="M70,10a60,60 0 1,1 0,120a60,60 0 1,1 0,-120z"/>
+  <path android:fillColor="#FFFFFF" android:pathData="M70,50a20,20 0 1,1 0,40a20,20 0 1,1 0,-40z"/>
+  <!-- progress arcs -->
+  <path android:fillColor="#10B981" android:pathData="M70,10A60,60 0 0,1 120,40L108,52A44,44 0 0,0 70,26z"/>
+  <path android:fillColor="#EF4444" android:pathData="M120,40A60,60 0 0,1 126,72L110,72A44,44 0 0,0 108,52z"/>
+  <path android:fillColor="#3B82F6" android:pathData="M126,72A60,60 0 0,1 94,122L84,108A44,44 0 0,0 110,72z"/>
+  <path android:fillColor="#F59E0B" android:pathData="M94,122A60,60 0 0,1 70,130L70,114A44,44 0 0,0 84,108z"/>
+  <!-- center text placeholder as shapes -->
+  <path android:fillColor="#111111" android:pathData="M60,74h20v6H60z"/>
+  <path android:fillColor="#9CA3AF" android:pathData="M58,86h24v4H58z"/>
+</vector>

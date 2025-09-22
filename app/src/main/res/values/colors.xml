@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- BestMeal brand & splash colors -->
+    <color name="bestmeal_green">#149C45</color>
+    <color name="bestmeal_deep_ring">#2C5E57</color>
+    <color name="bestmeal_light_ring">#DDE6E0</color>
+    <color name="splash_mint_start">#F7FFF9</color>
+    <color name="splash_mint_end">#EEF8F1</color>
+    <color name="splash_text_subtle">#6C7A73</color>
+    <color name="splash_bg">#EEF8F1</color>
+</resources>

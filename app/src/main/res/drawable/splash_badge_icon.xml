@@ -1,0 +1,15 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:width="200dp" android:height="200dp" android:gravity="center">
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+    <item android:gravity="center">
+        <inset android:insetLeft="0dp" android:insetRight="0dp" android:insetTop="0dp" android:insetBottom="0dp">
+            <bitmap android:src="@drawable/splash_badge_rings" android:gravity="center" />
+        </inset>
+    </item>
+    <item android:gravity="center">
+        <bitmap android:src="@drawable/ic_pyramid" android:gravity="center" />
+    </item>
+</layer-list>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BestMeal</string>
+    <string name="brand_title">BESTMEAL</string>
+    <string name="brand_subtitle">TRACK YOUR HEALTH, SIMPLY.</string>
+    <string name="decor_water">Water</string>
+    <string name="decor_grains">Grains</string>
+    <string name="decor_meal">Meal</string>
+</resources>
