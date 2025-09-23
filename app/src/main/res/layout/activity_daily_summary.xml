@@ -75,6 +75,14 @@
                             android:contentDescription="Calories Donut"/>
                     </LinearLayout>
 
+                    <TextView
+                        android:id="@+id/tv_water_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Water today: 0 ml"
+                        android:textColor="#6B7280"/>
+
                     <!-- Legend -->
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -134,18 +142,11 @@
 
             <!-- List of meals -->
             <LinearLayout
+                android:id="@+id/container_meals"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="8dp">
-
-                <!-- Reusable item style replicated -->
-                <include layout="@layout/item_logged_meal"/>
-                <include layout="@layout/item_logged_meal"/>
-                <include layout="@layout/item_logged_meal"/>
-                <include layout="@layout/item_logged_meal"/>
-                <include layout="@layout/item_logged_meal"/>
-            </LinearLayout>
+                android:layout_marginTop="8dp"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

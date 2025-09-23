@@ -26,6 +26,22 @@ class MainActivity : AppCompatActivity() {
         findViewById<android.view.View?>(R.id.btn_daily_summary)?.setOnClickListener {
             startActivity(Intent(this, DailySummaryActivity::class.java))
         }
+        findViewById<android.view.View?>(R.id.btn_calorie_ref)?.setOnClickListener {
+            startActivity(Intent(this, CalorieReferenceActivity::class.java))
+        }
+
+        // Log Water button -> WaterTracker
+        findViewById<android.view.View?>(R.id.btn_log_water)?.setOnClickListener {
+            startActivity(Intent(this, WaterTrackerActivity::class.java))
+        }
+
+        // Stat cards
+        findViewById<android.view.View?>(R.id.card_calories)?.setOnClickListener {
+            startActivity(Intent(this, CalorieReferenceActivity::class.java))
+        }
+        findViewById<android.view.View?>(R.id.card_water)?.setOnClickListener {
+            startActivity(Intent(this, WaterTrackerActivity::class.java))
+        }
 
         // Bottom navigation
         findViewById<BottomNavigationView?>(R.id.bottom_nav)?.apply {
@@ -37,8 +53,8 @@ class MainActivity : AppCompatActivity() {
                         startActivity(Intent(this@MainActivity, LogMealActivity::class.java))
                         true
                     }
-                    R.id.nav_water -> { true }
-                    R.id.nav_settings -> { true }
+                    R.id.nav_water -> { startActivity(Intent(this@MainActivity, WaterTrackerActivity::class.java)); true }
+                    R.id.nav_settings -> { startActivity(Intent(this@MainActivity, SettingsActivity::class.java)); true }
                     else -> false
                 }
             }

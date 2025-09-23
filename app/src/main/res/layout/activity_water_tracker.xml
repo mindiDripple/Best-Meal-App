@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:paddingBottom="88dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Water Tracker"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#111"/>
+
+            <!-- Hydration pill -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#F5F7F7"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"
+                android:clipToOutline="true">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_alert"
+                    android:tint="#EF4444"/>
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Hydration Check – You’re halfway there!"
+                    android:textColor="#223"/>
+            </LinearLayout>
+
+            <!-- Bottle card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardUseCompatPadding="false"
+                app:cardElevation="0dp"
+                app:strokeColor="#EEEEEE"
+                app:strokeWidth="1dp">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="160dp"
+                        android:layout_height="220dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_bottle"
+                        android:contentDescription="Bottle"/>
+                    <TextView
+                        android:id="@+id/tv_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="12dp"
+                        android:text="0/12"
+                        android:textColor="#9CA3AF"/>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Add water buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_add_250"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="+250ml"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#CF6E66"
+                    app:icon="@drawable/ic_drop_filled"
+                    app:iconTint="@android:color/white"
+                    app:iconPadding="8dp"
+                    app:cornerRadius="28dp"/>
+                <View android:layout_width="12dp" android:layout_height="0dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_add_500"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="+500ml"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#CF6E66"
+                    app:icon="@drawable/ic_drop_filled"
+                    app:iconTint="@android:color/white"
+                    app:iconPadding="8dp"
+                    app:cornerRadius="28dp"/>
+            </LinearLayout>
+
+            <!-- Droplet grid 4x3 -->
+            <GridLayout
+                android:id="@+id/grid_drops"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:columnCount="4"
+                android:rowCount="3"
+                android:alignmentMode="alignMargins">
+
+                <!-- 12 droplet ImageViews with tag index -->
+                <ImageView android:id="@+id/drop0" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop1" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop2" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop3" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop4" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop5" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop6" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop7" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop8" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop9" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop10" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+                <ImageView android:id="@+id/drop11" android:layout_width="48dp" android:layout_height="48dp" android:layout_margin="8dp" android:src="@drawable/ic_drop_outline" android:contentDescription="Drop"/>
+            </GridLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom nav -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        app:menu="@menu/menu_bottom_nav"
+        app:itemIconTint="@color/selector_nav"
+        app:itemTextColor="@color/selector_nav"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,11 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="160dp" android:height="120dp" android:viewportWidth="160" android:viewportHeight="120">
+  <!-- soft plate -->
+  <path android:fillColor="#FFF7F7" android:pathData="M20,20h120v80H20z"/>
+  <path android:fillColor="#F5E1DC" android:pathData="M80,24a44,44 0 1,1 0,88a44,44 0 1,1 0,-88z"/>
+  <path android:fillColor="#FFFFFF" android:pathData="M80,36a32,32 0 1,1 0,64a32,32 0 1,1 0,-64z"/>
+  <!-- fork -->
+  <path android:fillColor="#9CA3AF" android:pathData="M78,20h4v40h-4z"/>
+  <!-- smile -->
+  <path android:fillColor="#E08A7A" android:pathData="M68,82c4,6 20,6 24,0z"/>
+  <path android:fillColor="#E08A7A" android:pathData="M68,72a2,2 0 1,0 0,4a2,2 0 1,0 0,-4zM92,72a2,2 0 1,0 0,4a2,2 0 1,0 0,-4z"/>
+</vector>
