@@ -17,12 +17,13 @@
         android:padding="12dp">
 
         <ImageView
+            android:id="@+id/iv_food"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:src="@drawable/ic_food_placeholder"
             android:background="#F3F4F6"
             android:scaleType="centerCrop"
-            android:contentDescription="Meal"/>
+            android:contentDescription="Food"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -31,33 +32,27 @@
             android:orientation="vertical"
             android:layout_marginStart="12dp">
             <TextView
-                android:id="@+id/tv_meal_title"
+                android:id="@+id/tv_food_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sample Meal Title"
+                android:text="Boiled Egg 100g"
                 android:textStyle="bold"
                 android:textColor="#111"/>
             <TextView
-                android:id="@+id/tv_meal_sub"
+                android:id="@+id/tv_food_cal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lunch"
-                android:textColor="#6B7280"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="300 kcal"
-                android:textColor="#6B7280"/>
+                android:text="155 Calories"
+                android:textColor="#16A34A"/>
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/btn_delete"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_delete"
-            android:tint="#EF4444"
-            android:contentDescription="Delete"/>
+        <ImageView
+            android:id="@+id/iv_chevron"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_chevron_right"
+            android:tint="#9CA3AF"
+            android:contentDescription="Details"/>
 
     </LinearLayout>
 

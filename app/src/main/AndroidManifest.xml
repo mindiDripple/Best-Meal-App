@@ -36,6 +36,36 @@
             android:name=".DailySummaryActivity"
             android:exported="false"
             android:theme="@style/Theme.App" />
+
+        <activity
+            android:name=".CalorieReferenceActivity"
+            android:exported="false"
+            android:theme="@style/Theme.App" />
+
+        <activity
+            android:name=".DailySummaryEmptyActivity"
+            android:exported="false"
+            android:theme="@style/Theme.App" />
+
+        <activity
+            android:name=".WaterTrackerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.App" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.App" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App" />
+
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App" />
     </application>
 
 </manifest>

@@ -19,8 +19,11 @@ class SplashActivity : ComponentActivity() {
         setContentView(R.layout.activity_splash)
 
         splashScope.launch {
-            delay(1200)
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            delay(800)
+            val isLoggedIn = getSharedPreferences("bestmeal_prefs", MODE_PRIVATE)
+                .getBoolean("logged_in", false)
+            val next = if (isLoggedIn) MainActivity::class.java else LoginActivity::class.java
+            startActivity(Intent(this@SplashActivity, next))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }

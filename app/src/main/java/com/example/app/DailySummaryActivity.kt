@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.view.LayoutInflater
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.TextView
 
 class DailySummaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +28,12 @@ class DailySummaryActivity : AppCompatActivity() {
             startActivity(Intent(this, LogMealActivity::class.java))
         }
 
+        // Populate meals
+        renderMeals()
+        // Update water status
+        val waterMl = DataRepo.getWaterMl(this)
+        findViewById<TextView?>(R.id.tv_water_status)?.text = "Water today: ${waterMl} ml"
+
         // Bottom navigation
         findViewById<BottomNavigationView?>(R.id.bottom_nav)?.apply {
             selectedItemId = R.id.nav_meals
@@ -31,11 +41,33 @@ class DailySummaryActivity : AppCompatActivity() {
                 when (item.itemId) {
                     R.id.nav_home -> { startActivity(Intent(this@DailySummaryActivity, MainActivity::class.java)); true }
                     R.id.nav_meals -> { startActivity(Intent(this@DailySummaryActivity, LogMealActivity::class.java)); true }
-                    R.id.nav_water -> { true }
-                    R.id.nav_settings -> { true }
+                    R.id.nav_water -> { startActivity(Intent(this@DailySummaryActivity, WaterTrackerActivity::class.java)); true }
+                    R.id.nav_settings -> { startActivity(Intent(this@DailySummaryActivity, SettingsActivity::class.java)); true }
                     else -> false
                 }
             }
+        }
+    }
+
+    private fun renderMeals() {
+        val meals = DataRepo.getMeals(this)
+        if (meals.isEmpty()) {
+            startActivity(Intent(this, DailySummaryEmptyActivity::class.java))
+            finish()
+            return
+        }
+        val container = findViewById<LinearLayout?>(R.id.container_meals) ?: return
+        container.removeAllViews()
+        val inflater = LayoutInflater.from(this)
+        meals.forEach { meal ->
+            val row = inflater.inflate(R.layout.item_logged_meal, container, false)
+            row.findViewById<TextView>(R.id.tv_meal_title).text = meal.name
+            row.findViewById<TextView>(R.id.tv_meal_sub).text = meal.quantity
+            row.findViewById<ImageButton>(R.id.btn_delete).setOnClickListener {
+                DataRepo.deleteMeal(this, meal.id)
+                renderMeals()
+            }
+            container.addView(row)
         }
     }
 }

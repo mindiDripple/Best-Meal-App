@@ -66,6 +66,7 @@
 
             <!-- Hero card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_hero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -140,6 +141,7 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="12dp">
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_calories"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -171,6 +173,7 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_water"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
