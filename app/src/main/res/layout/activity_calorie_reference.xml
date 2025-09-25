@@ -27,23 +27,6 @@
                 android:textColor="#111"/>
 
             <!-- Search field -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:startIconDrawable="@drawable/ic_search"
-                app:boxBackgroundMode="filled"
-                app:boxBackgroundColor="#F4F6F8"
-                app:boxCornerRadiusTopStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusBottomEnd="16dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_search_food"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:hint="Search food..."/>
-            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Tip card with banner -->
             <com.google.android.material.card.MaterialCardView
@@ -62,7 +45,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/banner_fruits"/>
+                        android:src="@drawable/vegcal"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -116,6 +99,18 @@
                     android:background="@drawable/bg_chip_pill"/>
 
                 <TextView
+                    android:id="@+id/chip_vegetables"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:layout_marginStart="8dp"
+                    android:text="Vegetables"
+                    android:textColor="#2E7D32"
+                    android:background="@drawable/bg_chip_pill"/>
+
+                <TextView
                     android:id="@+id/chip_proteins"
                     android:layout_width="wrap_content"
                     android:layout_height="36dp"
@@ -124,6 +119,18 @@
                     android:paddingRight="16dp"
                     android:layout_marginStart="8dp"
                     android:text="Proteins"
+                    android:textColor="#2E7D32"
+                    android:background="@drawable/bg_chip_pill"/>
+
+                <TextView
+                    android:id="@+id/chip_desserts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:layout_marginStart="8dp"
+                    android:text="Desserts"
                     android:textColor="#2E7D32"
                     android:background="@drawable/bg_chip_pill"/>
 

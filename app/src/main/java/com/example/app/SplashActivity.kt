@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.app.R
 import kotlinx.coroutines.*
 
@@ -13,7 +13,7 @@ class SplashActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            SplashScreen.installSplashScreen(this)
+            installSplashScreen()
         }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
