@@ -13,21 +13,44 @@ import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
 
 class CalorieReferenceActivity : AppCompatActivity() {
-    private data class Food(val name: String, val calories: Int)
+    private enum class Category { ALL, FRUITS, VEGETABLES, PROTEINS, DESSERTS }
+    private data class Food(val name: String, val calories: Int, val category: Category, val imageRes: Int)
+
     private val foods = listOf(
-        Food("Boiled Egg 100g", 155),
-        Food("Apple (medium)", 95),
-        Food("Chicken Breast 100g", 165),
-        Food("Whole Wheat Bread (1 slice)", 82),
-        Food("Spinach 100g", 23),
-        Food("Banana (medium)", 105),
-        Food("Greek Yogurt (plain, 100g)", 59),
-        Food("Rice (cooked, 100g)", 130),
-        Food("Oats (dry, 40g)", 150),
-        Food("Almonds (28g)", 164)
+        // Fruits
+        Food("Apple (medium)", 95, Category.FRUITS, R.drawable.fruitlist),
+        Food("Banana (medium)", 105, Category.FRUITS, R.drawable.fruitlist),
+        Food("Orange (medium)", 62, Category.FRUITS, R.drawable.fruitlist),
+        Food("Strawberries 100g", 32, Category.FRUITS, R.drawable.fruitlist),
+        Food("Blueberries 100g", 57, Category.FRUITS, R.drawable.fruitlist),
+        Food("Grapes 100g", 69, Category.FRUITS, R.drawable.fruitlist),
+        // Vegetables
+        Food("Spinach 100g", 23, Category.VEGETABLES, R.drawable.img_vegetables),
+        Food("Broccoli 100g", 34, Category.VEGETABLES, R.drawable.img_vegetables),
+        Food("Carrot 100g", 41, Category.VEGETABLES, R.drawable.img_vegetables),
+        Food("Tomato 100g", 18, Category.VEGETABLES, R.drawable.img_vegetables),
+        Food("Cucumber 100g", 16, Category.VEGETABLES, R.drawable.img_vegetables),
+        Food("Potato (boiled, 100g)", 87, Category.VEGETABLES, R.drawable.img_vegetables),
+        // Proteins
+        Food("Boiled Egg 100g", 155, Category.PROTEINS, R.drawable.img_proteins),
+        Food("Chicken Breast 100g", 165, Category.PROTEINS, R.drawable.img_proteins),
+        Food("Greek Yogurt (100g)", 59, Category.PROTEINS, R.drawable.img_proteins),
+        Food("Lentils (cooked, 100g)", 116, Category.PROTEINS, R.drawable.img_proteins),
+        Food("Tofu (firm, 100g)", 76, Category.PROTEINS, R.drawable.img_proteins),
+        Food("Paneer (100g)", 321, Category.PROTEINS, R.drawable.img_proteins),
+        // Desserts
+        Food("Dark Chocolate (28g)", 155, Category.DESSERTS, R.drawable.img_desserts),
+        Food("Ice Cream (1/2 cup)", 137, Category.DESSERTS, R.drawable.img_desserts),
+        Food("Cupcake (1 small)", 200, Category.DESSERTS, R.drawable.img_desserts),
+        Food("Gulab Jamun (1 pc)", 112, Category.DESSERTS, R.drawable.img_desserts),
+        Food("Brownie (1 small)", 129, Category.DESSERTS, R.drawable.img_desserts)
     )
+
+    private var currentCategory: Category = Category.ALL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,10 +71,18 @@ class CalorieReferenceActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 val q = s?.toString()?.trim()?.lowercase().orEmpty()
-                val filtered = if (q.isEmpty()) foods else foods.filter { it.name.lowercase().contains(q) }
+                val filteredByCat = filterByCategory(foods, currentCategory)
+                val filtered = if (q.isEmpty()) filteredByCat else filteredByCat.filter { it.name.lowercase().contains(q) }
                 renderList(filtered)
             }
         })
+
+        // Chips listeners
+        findViewById<TextView?>(R.id.chip_all)?.setOnClickListener { selectCategory(Category.ALL) }
+        findViewById<TextView?>(R.id.chip_fruits)?.setOnClickListener { selectCategory(Category.FRUITS) }
+        findViewById<TextView?>(R.id.chip_vegetables)?.setOnClickListener { selectCategory(Category.VEGETABLES) }
+        findViewById<TextView?>(R.id.chip_proteins)?.setOnClickListener { selectCategory(Category.PROTEINS) }
+        findViewById<TextView?>(R.id.chip_desserts)?.setOnClickListener { selectCategory(Category.DESSERTS) }
 
         // Bottom navigation
         findViewById<BottomNavigationView?>(R.id.bottom_nav)?.apply {
@@ -76,7 +107,41 @@ class CalorieReferenceActivity : AppCompatActivity() {
             val row = inflater.inflate(R.layout.item_food_calorie, container, false)
             row.findViewById<TextView>(R.id.tv_food_title).text = f.name
             row.findViewById<TextView>(R.id.tv_food_cal).text = "${f.calories} Calories"
+            row.findViewById<ImageView>(R.id.iv_food).setImageDrawable(ContextCompat.getDrawable(this, f.imageRes))
             container.addView(row)
         }
     }
+
+    private fun selectCategory(cat: Category) {
+        currentCategory = cat
+        // update chip styles
+        val chips = listOf(
+            R.id.chip_all to Category.ALL,
+            R.id.chip_fruits to Category.FRUITS,
+            R.id.chip_vegetables to Category.VEGETABLES,
+            R.id.chip_proteins to Category.PROTEINS,
+            R.id.chip_desserts to Category.DESSERTS,
+        )
+        chips.forEach { (id, category) ->
+            val tv = findViewById<TextView?>(id) ?: return@forEach
+            if (category == cat) {
+                tv.setBackgroundResource(R.drawable.bg_chip_pill_primary)
+                tv.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+            } else {
+                tv.setBackgroundResource(R.drawable.bg_chip_pill)
+                tv.setTextColor(0xFF2E7D32.toInt())
+            }
+        }
+        // filter by category + current search
+        val q = findViewById<TextInputEditText?>(R.id.et_search_food)?.text?.toString()?.trim()?.lowercase().orEmpty()
+        val filteredByCat = filterByCategory(foods, cat)
+        val filtered = if (q.isEmpty()) filteredByCat else filteredByCat.filter { it.name.lowercase().contains(q) }
+        renderList(filtered)
+    }
+
+    private fun filterByCategory(list: List<Food>, cat: Category): List<Food> =
+        when (cat) {
+            Category.ALL -> list
+            else -> list.filter { it.category == cat }
+        }
 }

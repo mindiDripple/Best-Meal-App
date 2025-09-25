@@ -79,26 +79,13 @@
                     android:orientation="vertical"
                     android:gravity="center_horizontal"
                     android:padding="16dp">
+
                     <ImageView
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:src="@drawable/ic_hero_person"
-                        android:contentDescription="Hello"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hello!"
-                        android:textSize="28sp"
-                        android:textStyle="bold"
-                        android:textColor="#1B5E20"
-                        android:paddingTop="4dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Your daily wellness journey starts\nhere."
-                        android:textAlignment="center"
-                        android:textColor="#6C7A73"
-                        android:paddingTop="2dp"/>
+                        android:layout_width="419dp"
+                        android:layout_height="371dp"
+                        android:contentDescription="Hello"
+                        android:src="@drawable/home" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
