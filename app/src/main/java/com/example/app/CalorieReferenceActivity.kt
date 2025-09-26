@@ -65,17 +65,7 @@ class CalorieReferenceActivity : AppCompatActivity() {
         // Render initial list
         renderList(foods)
 
-        // Search
-        findViewById<TextInputEditText?>(R.id.et_search_food)?.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) {
-                val q = s?.toString()?.trim()?.lowercase().orEmpty()
-                val filteredByCat = filterByCategory(foods, currentCategory)
-                val filtered = if (q.isEmpty()) filteredByCat else filteredByCat.filter { it.name.lowercase().contains(q) }
-                renderList(filtered)
-            }
-        })
+        // Search field was removed from layout; skip watcher and default to no query
 
         // Chips listeners
         findViewById<TextView?>(R.id.chip_all)?.setOnClickListener { selectCategory(Category.ALL) }
@@ -133,7 +123,7 @@ class CalorieReferenceActivity : AppCompatActivity() {
             }
         }
         // filter by category + current search
-        val q = findViewById<TextInputEditText?>(R.id.et_search_food)?.text?.toString()?.trim()?.lowercase().orEmpty()
+        val q = ""
         val filteredByCat = filterByCategory(foods, cat)
         val filtered = if (q.isEmpty()) filteredByCat else filteredByCat.filter { it.name.lowercase().contains(q) }
         renderList(filtered)
