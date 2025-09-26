@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/banner_fruits"
+                android:src="@drawable/settop"
                 android:contentDescription="Banner"/>
 
             <!-- Profile card -->
@@ -188,7 +188,7 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:padding="12dp">
-                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_meal" android:tint="#9CA3AF"/>
+                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/setreminder" android:tint="@null"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:padding="12dp">
-                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_water" android:tint="#9CA3AF"/>
+                    <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/setwater" android:tint="@null"/>
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -247,7 +247,7 @@
                 android:layout_height="140dp"
                 android:layout_marginTop="16dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/banner_fruits"/>
+                android:src="@drawable/setbottom"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
